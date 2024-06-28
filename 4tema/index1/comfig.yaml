@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: greetings-configmap
+data:
+  index-ko.html: |
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>안녕하세요</title>
+    </head>
+    <body>
+        <h1>안녕하세요</h1>
+    </body>
+    </html>
+  index-en.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello</title>
+    </head>
+    <body>
+        <h1>Hello</h1>
+    </body>
+    </html>
+  index-zh.html: |
+    <!DOCTYPE html>
+    <html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>你好</title>
+    </head>
+    <body>
+        <h1>你好</h1>
+    </body>
+    </html>

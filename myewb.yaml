@@ -1,0 +1,11 @@
+kind: Pod
+metadata:
+  labels:
+    run: hiserver
+  name: hiserver
+spec:
+  containers:
+    - image: yoyoblue/hiserver:latest
+    name: hiserver
+    ports:
+    - containerPort: 80

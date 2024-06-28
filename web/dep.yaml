@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-home
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-home
+  template:
+    metadata:
+      labels:
+        app: nginx-home
+    spec:
+      containers:
+      - name: nginx-home
+        image: kingzim/web:latest
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-admin
+  template:
+    metadata:
+      labels:
+        app: nginx-admin
+    spec:
+      containers:
+      - name: nginx-admin
+        image: kingzim/web1:latest
+        ports:
+        - containerPort: 80

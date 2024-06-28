@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django
+spec:
+  selector:
+    matchLabels:
+      app: django
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: django
+    spec:
+      initContainers:
+      - name: init-static-files
+        image: kingzim/django
+        command: ["/bin/sh", "-c"]
+        args:
+          - cp -r /code/www_dir/static/admin/* /mnt/static/admin/;
+        volumeMounts:
+        - name: django-static
+          mountPath: /mnt/static/admin
+      containers:
+      - name: django
+        image: kingzim/django
+        envFrom:
+        - configMapRef:
+            name: app-config
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+        - name: django-static
+          mountPath: /code/www_dir/static/admin
+      volumes:
+      - name: django-static
+        persistentVolumeClaim:
+          claimName: django-static-pvc  

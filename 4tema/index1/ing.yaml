@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+spec:
+  rules:
+  - host: 4team.com
+    http:
+      paths:
+      - path: /ko
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-loadbalancer
+            port:
+              number: 80
+      - path: /en
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-loadbalancer
+            port:
+              number: 80
+      - path: /zh
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-loadbalancer
+            port:
+              number: 80
