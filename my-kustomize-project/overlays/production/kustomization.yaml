@@ -13,5 +13,5 @@ namePrefix: prod-
 patches:
   - target:
       kind: Service
-      name: prod-guestbook
+      name: prod-guestbook1
     path: service-patch.yaml
