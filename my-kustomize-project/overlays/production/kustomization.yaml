@@ -10,5 +10,8 @@ images:
 
 namePrefix: prod-
 
-patchesStrategicMerge:
-  - service-patch.yaml
+patches:
+  - target:
+      kind: Service
+      name: prod-guestbook
+    path: service-patch.yaml
