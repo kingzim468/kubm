@@ -9,9 +9,3 @@ images:
     newTag: "0.1"
 
 namePrefix: prod-
-
-patches:
-  - target:
-      kind: Service
-      name: prod-guestbook1
-    path: service-patch.yaml
