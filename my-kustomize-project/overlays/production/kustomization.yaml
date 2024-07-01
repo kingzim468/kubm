@@ -9,3 +9,6 @@ images:
     newTag: "0.1"
 
 namePrefix: prod-
+
+patchesStrategicMerge:
+  - service-patch.yaml
